@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Project.Admin.Admin" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Top Navbar */
+        .top-navbar {
+            background: #212529;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-navbar h3 {
+            margin: 0;
+        }
+
+        .top-navbar .logout-btn {
+            background: #dc3545;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .top-navbar .logout-btn:hover {
+            background: #c82333;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #343a40;
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding-top: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar h4 {
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #555;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        .sidebar a:hover {
+            background: #007bff;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <h3>Trendify Media</h3>
+            <a href="Logout.aspx" class="btn logout-btn">LOG OUT</a>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h4>ADMIN PANEL</h4>
+             <a href="Dashboard.aspx"><i class="bi bi-box"></i> Dashboard</a>
+            <a href="Add_Package.aspx"><i class="bi bi-box"></i> Add Packages</a>
+            <a href="Inquries.aspx"><i class="bi bi-envelope"></i> Inquiries</a>
+            <a href="AdminAppointment.aspx"><i class="bi bi-calendar-check"></i> Appointments</a>
+            <a href="Userlist.aspx"><i class="bi bi-people"></i> User List</a>
+            <a href="AdminRegister.aspx"><i class="bi bi-person-plus"></i> Admin Register</a>
+            <a href="AdminList.aspx"><i class="bi bi-person-lines-fill"></i> Admin List</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
